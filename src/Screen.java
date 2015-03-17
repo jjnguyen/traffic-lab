@@ -12,7 +12,7 @@ import java.util.ArrayList;
  
 public class Screen extends JPanel
 {
-	private BufferedImage buffered;
+	private BufferedImage roadImage;
     private Sedan sd;
     private SportsCar sp;
     private BigCar bc;
@@ -25,32 +25,47 @@ public class Screen extends JPanel
     private ArrayList<Automobile> carList = new ArrayList<Automobile>();
  
     public Screen()
-    {    	
-    	sd = new Sedan(Color.red,500,50);
-    	sp = new SportsCar(Color.red,100,300);
-    	bc = new BigCar(Color.magenta,100,200);
-    	t2 = new Truck2(Color.orange,100,400);
-    	suv = new SUV(Color.black,100,500);
-    	am = new Automobile(Color.blue,50,50);
-    	sc = new SmallCar(Color.green,200,50);
-    	ssc = new SmallSportCar(Color.red,300,50);
-       
-    	//carList.add( new Automobile(Color.blue, 50, 50) );
-        //carList.add( new SmallCar(Color.green, 200, 50) );
+    {    	   
+        /*carList.add(new Sedan(Color.gray,550,50));
+        carList.add(new SportsCar(Color.red,100,50));
+        carList.add(new BigCar(Color.magenta,250,50));
+        carList.add(new Truck2(Color.orange,400,50));*/
         
-		//carList.add( new MediumCar(Color.red, 400, 50) );
-		//carList.add( new Sedan(Color.red, 500, 50) );
-
-        carList.add(sd);
-        carList.add(sp);
-        carList.add(bc);
-        carList.add(t2);
-        carList.add(suv);
-        carList.add(am);
-        carList.add(sc);
-        carList.add(ssc);
+        int x=0;
+        int y=50;
+        Automobile cur = null;
+       /* for(int i=0;i<5;i++)
+        {
+        	x+=(cur==null ?0 :(cur.width));
+        	cur=new Sedan(Color.gray,x,y);
+        	carList.add(cur);
+        	
+        	x+=cur.width+20;
+        	cur=new SportsCar(Color.gray,x,y);
+        	carList.add(cur);
+        	
+        	x+=cur.width+20;
+        	cur=new Truck2(Color.gray,x,y);
+        	carList.add(cur);
+        	
+        	x+=cur.width+20;
+        	cur=new SUV(Color.gray,x,y);
+        	carList.add(cur);
+        }*/
+        Automobile sedan = new Sedan(Color.red,0,0);
+        
+        init();
     }
-     
+    public void init()
+    {
+    	roadImage=null;
+        try {
+        	roadImage = ImageIO.read(new File("images/road.jpg"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
     public Dimension getPreferredSize()
     {
         Dimension windowSize = new Dimension(800,600);
@@ -63,23 +78,11 @@ public class Screen extends JPanel
          
         //draw background
        
-        if (buffered == null)
-            buffered = (BufferedImage) (createImage(getWidth(), getHeight()));
-
-        Graphics gBuff = buffered.createGraphics();
-
         g.setColor( Color.white );
         g.fillRect(0,0,800,600);
          
-
-        BufferedImage roadImage = null;
-        try {
-        	roadImage = ImageIO.read(new File("ROAD_STRAIGHT.jpg"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        gBuff.drawImage(roadImage, 0, 0, null);
+        g.drawImage(roadImage, -10, 0, null);
+        g.drawImage(roadImage, -10, 300, null);
         
         //draw cars
         for(Automobile each : carList )
@@ -102,7 +105,7 @@ public class Screen extends JPanel
  
             for(Automobile each : carList )
             {
-            	each.move();
+            //	each.move();
             }
              
             repaint();

@@ -15,7 +15,7 @@ public class  MediumCar extends Automobile
         
 		g.setColor( bodyColor );
         g.fillRect(x,y,width, height);
-		g.setColor( Color.red );
+	//	g.setColor(  );
 		g.fillRect(x+5,y-10,width-10, height+5);
 		//light
 		g.setColor( Color.yellow );
