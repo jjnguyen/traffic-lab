@@ -19,9 +19,7 @@ public class Screen extends JPanel
     private Truck2 t2;
     private SUV suv;
     private Automobile am;
-    private SmallCar sc;
-    private SmallSportCar ssc;
-   
+    
     private ArrayList<Automobile> carList = new ArrayList<Automobile>();
  
     public Screen()
@@ -33,26 +31,44 @@ public class Screen extends JPanel
         
         int x=0;
         int y=50;
-        Automobile cur = null;
-       /* for(int i=0;i<5;i++)
+       // Automobile cur = null;
+        for(int i=0;i<5;i++)
         {
-        	x+=(cur==null ?0 :(cur.width));
-        	cur=new Sedan(Color.gray,x,y);
-        	carList.add(cur);
+        	//x+=(cur==null ?0 :(cur.width+20));
+        	Automobile sedan=new Sedan(Color.gray,x,y);
+        	carList.add(sedan);
         	
-        	x+=cur.width+20;
-        	cur=new SportsCar(Color.gray,x,y);
-        	carList.add(cur);
+        	x+=sedan.width+20;
+        	Automobile sportsCar=new SportsCar(Color.red,x+30,y);
+        	carList.add(sportsCar);
         	
-        	x+=cur.width+20;
-        	cur=new Truck2(Color.gray,x,y);
-        	carList.add(cur);
+        	x+=sportsCar.width+20;
+        	Automobile truck=new Truck2(Color.orange,x+30,y);
+        	carList.add(truck);
         	
-        	x+=cur.width+20;
-        	cur=new SUV(Color.gray,x,y);
-        	carList.add(cur);
-        }*/
-        Automobile sedan = new Sedan(Color.red,0,0);
+        	x+=truck.width+20;
+        	Automobile suv=new SUV(Color.black,x+30,y);
+        	carList.add(suv);
+        	
+        	sedan.setFront(sportsCar);
+        	sportsCar.setBack(sedan);
+        	
+        	sportsCar.setFront(truck);
+        	truck.setBack(sportsCar);
+        	
+        	truck.setFront(suv);
+        	suv.setBack(truck);
+        	
+        	suv.setFront(sedan);
+        	sedan.setBack(suv);
+        	
+        	suv.setIsFront(true);
+        	
+        	x=0;
+        	y+=100;
+        	//cur=null;
+        }
+        //Automobile sedan = new Sedan(Color.red,0,0);
         
         init();
     }
@@ -82,7 +98,8 @@ public class Screen extends JPanel
         g.fillRect(0,0,800,600);
          
         g.drawImage(roadImage, -10, 0, null);
-        g.drawImage(roadImage, -10, 300, null);
+        g.drawImage(roadImage, -10, 230, null);
+        g.drawImage(roadImage, -10, 460, null);
         
         //draw cars
         for(Automobile each : carList )
@@ -105,7 +122,7 @@ public class Screen extends JPanel
  
             for(Automobile each : carList )
             {
-            //	each.move();
+            	each.move();
             }
              
             repaint();

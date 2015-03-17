@@ -6,6 +6,7 @@ public class SUV extends BigCar
     public SUV(Color bodyColor, int x, int y)
     {
         super(bodyColor, x, y);
+        this.speed=1;
     }
      
     @Override
@@ -17,10 +18,6 @@ public class SUV extends BigCar
 		g.setColor(Color.white);
 		g.drawRect(x+width-50,y+height-25,25,20);
 		g.drawRect(x+width-76,y+height-25,25,20);
-    }
-    public void move()
-    {
-    	x++;
     }
     public void drawWheels(Graphics g)
     {

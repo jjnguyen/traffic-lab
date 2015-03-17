@@ -6,6 +6,7 @@ public class Truck2 extends BigCar
     public Truck2(Color bodyColor, int x, int y)
     {
         super(bodyColor, x, y);
+        this.speed=3;
     }
      
     @Override
@@ -25,9 +26,5 @@ public class Truck2 extends BigCar
 		g.setColor(Color.black);
 		g.drawRect(x+width-56,y+height-25,30,20);
          
-    }
-    public void move()
-    {
-    	x+=2;
     }
 }

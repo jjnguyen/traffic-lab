@@ -9,7 +9,10 @@ public class Automobile
 	public int y = 100;
 	public int width;
 	public int height;
-	private int speed =2;
+	protected int speed =2;
+	private Automobile front;
+	private Automobile back;
+	private boolean isFront;
 	
 	public Automobile(Color bodyColor, int x, int y)
 	{
@@ -19,6 +22,21 @@ public class Automobile
 		this.y = y;
 		this.width=70;
 		this.height=40;
+		
+	}
+	
+	public void setFront(Automobile front)
+	{
+		this.front = front;
+	}
+	
+	public void setBack(Automobile back)
+	{
+		this.back = back;
+	}
+
+	public void setIsFront(boolean front) {
+		isFront = front;
 	}
 	
 	public final String getName()
@@ -49,7 +67,24 @@ public class Automobile
 	}
 	public void move()
 	{
+		if(checkCollision()==true)
+		{
+			return;
+		}
 		x+=speed;
+		if(x>=820)
+		{
+			x=-100;
+			if (isFront) {
+				isFront = false;
+				back.setIsFront(true);				
+			}
+		}
+	}
+	
+	public boolean checkCollision()
+	{
+		return !isFront && (x + width + 30)>=front.x;
 	}
 	
 }

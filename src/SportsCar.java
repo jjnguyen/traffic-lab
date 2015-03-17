@@ -6,6 +6,7 @@ public class SportsCar extends MediumCar
     public SportsCar(Color bodyColor, int x, int y)
     {
         super(bodyColor, x, y);
+        this.speed=10;
     }
      
     @Override
@@ -20,10 +21,5 @@ public class SportsCar extends MediumCar
 		
 		
     }
-    public void move()
-    {
-    	x+=10;
-    }
-	//@Override
-	
+   
 }

@@ -8,6 +8,7 @@ public class BigCar extends Automobile
 		super(bodyColor,x,y);
 		this.height = 50;
 		this.width = 120;
+		this.speed=1;
 	}
 	
 	@Override
@@ -35,8 +36,5 @@ public class BigCar extends Automobile
 		g.fillOval(x+8,y+39, 15, 15);
 		g.fillOval(x+95,y+40, 15, 15);
 	}
-	public void move()
-	{
-		x+=1;
-	}
+	
 }

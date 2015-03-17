@@ -4,7 +4,7 @@ public class Runner
 {
 	public static void main(String[] args)
 	{
-		JFrame fr = new JFrame("Animals");
+		JFrame fr = new JFrame("Traffic");
 		Screen sc = new Screen();
 		
 		fr.add(sc);

@@ -6,6 +6,7 @@ public class Sedan extends MediumCar
     public Sedan(Color bodyColor, int x, int y)
     {
         super(bodyColor, x, y);
+        this.speed=2;
     }
      
     @Override
@@ -21,10 +22,5 @@ public class Sedan extends MediumCar
 		
 		
     }
-    public void move()
-    {
-    	x++;
-    }
-	//@Override
 	
 }
