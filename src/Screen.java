@@ -27,8 +27,9 @@ public class Screen extends JPanel
         }
 		//carList.add( new MediumCar(Color.red, 400, 50) );
 		carList.add( new Sedan(Color.red, 500, 50) );
-		
-		
+
+        carList.add(sd);
+        carList.add(sp);
     }
      
     public Dimension getPreferredSize()
@@ -50,8 +51,8 @@ public class Screen extends JPanel
         {
         	each.drawMe(g);
         }
-        sd.drawMe(g);
-        sp.drawMe(g);
+//        sd.drawMe(g);
+//        sp.drawMe(g);
             
     }
     public void animate()
