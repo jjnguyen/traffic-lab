@@ -10,13 +10,16 @@ public class Screen extends JPanel
      
     Sedan sd;
     SportsCar sp;
+    BigCar bc;
     private ArrayList<Automobile> carList = new ArrayList<Automobile>();
  
     public Screen()
     {
     	sd = new Sedan(Color.red,500,50);
-    	sp = new SportsCar(Color.red,100,200);
-        carList.add( new Automobile(Color.blue, 50, 50) );
+    	sp = new SportsCar(Color.red,100,300);
+    	bc = new BigCar(Color.magenta,100,200);
+       
+    	carList.add( new Automobile(Color.blue, 50, 50) );
         carList.add( new SmallCar(Color.green, 200, 50) );
          
         int y = 50;
@@ -26,10 +29,11 @@ public class Screen extends JPanel
             y += 50;
         }
 		//carList.add( new MediumCar(Color.red, 400, 50) );
-		carList.add( new Sedan(Color.red, 500, 50) );
+		//carList.add( new Sedan(Color.red, 500, 50) );
 
         carList.add(sd);
         carList.add(sp);
+        carList.add(bc);
     }
      
     public Dimension getPreferredSize()
@@ -67,6 +71,7 @@ public class Screen extends JPanel
  
             sd.move();
             sp.move();
+            bc.move();
              
             repaint();
         }
