@@ -9,6 +9,7 @@ public class Automobile
 	public int y = 100;
 	public int width;
 	public int height;
+	private int speed =2;
 	
 	public Automobile(Color bodyColor, int x, int y)
 	{
@@ -45,6 +46,10 @@ public class Automobile
 		g.setColor( Color.black );
 		g.fillOval(x+5,y+25, 20, 20);
 		g.fillOval(x+45,y+25, 20, 20);
+	}
+	public void move()
+	{
+		x+=speed;
 	}
 	
 }

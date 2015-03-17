@@ -31,4 +31,8 @@ public class SmallSportCar extends SmallCar
         g.fillPolygon(xArray, yArray, 3);
          
     }
+    public void move()
+	{
+		x+=10;
+	}
 }

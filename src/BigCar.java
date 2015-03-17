@@ -14,14 +14,16 @@ public class BigCar extends Automobile
 	public void drawFrame(Graphics g)
 	{
 		super.drawFrame(g);
+		//window
 		g.setColor(Color.blue);
 		g.fillRect(x+width-55,y+height-45,30,20);
 		//light
 		g.setColor(Color.yellow);
-		g.fillRect(x+width-10,y+height-25,10,10);
+		g.fillRect(x+width-10,y+height-25 ,10,10);
 		//door
 		g.setColor(Color.black);
 		g.drawRect(x+width-56,y+height-25,30,20);
+		////window
 	}
 	@Override
 	public void drawWheels(Graphics g)
@@ -35,6 +37,6 @@ public class BigCar extends Automobile
 	}
 	public void move()
 	{
-		x++;
+		x+=1;
 	}
 }

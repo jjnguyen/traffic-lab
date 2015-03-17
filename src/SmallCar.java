@@ -16,4 +16,8 @@ public class SmallCar extends Automobile
 		g.fillOval(x+3,y+15, 10, 10);
 		g.fillOval(x+20,y+15, 10, 10);
 	}
+	public void move()
+	{
+		x+=4;
+	}
 }

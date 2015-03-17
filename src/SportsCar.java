@@ -22,7 +22,7 @@ public class SportsCar extends MediumCar
     }
     public void move()
     {
-    	x+=5;
+    	x+=10;
     }
 	//@Override
 	

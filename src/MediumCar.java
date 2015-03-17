@@ -39,5 +39,9 @@ public class  MediumCar extends Automobile
 		//g.fillOval(x+3,y+15, 15, 15);
 		//g.fillOval(x+60,y+15, 15, 15);
 	}
+	public void move()
+	{
+		x++;
+	}
 	
 }
