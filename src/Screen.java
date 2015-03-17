@@ -70,7 +70,7 @@ public class Screen extends JPanel
 
         g.setColor( Color.white );
         g.fillRect(0,0,800,600);
-        
+         
 
         BufferedImage roadImage = null;
         try {
